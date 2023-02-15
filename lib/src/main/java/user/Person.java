@@ -24,7 +24,13 @@ public class Person {
 	public String getGender() { 
 		return gender;
 	}
-	 
-	// setUsername, setPassword dddd
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 }
