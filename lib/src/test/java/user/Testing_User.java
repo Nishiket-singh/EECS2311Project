@@ -120,6 +120,33 @@ class Testing_User {
 			assertEquals(2, r.getDislike().size());
 		}
 	}
+	
+	public class CategoriesTest {
+		
+		@Test
+		public void testGetCategoriesEmpty() {
+			Categories c = new Categories("Mary Lana", 30, "Female");
+			assertTrue(c.getCategories().isEmpty());
+		}
+		
+		@Test
+		public void testSetCategories() {
+			Categories c = new Categories("Jasmine Sands", 25, "Female");
+			ArrayList<String> categories = new ArrayList<String>();
+			categories.add("category1");
+			categories.add("category2");
+			c.setCategories(categories);
+			assertEquals(categories, c.getCategories());
+		}
+		
+		@Test
+		public void testMultipleCategories() {
+			Categories c = new Categories("Bruno Ferris", 45, "Non-binary");
+			c.getCategories().add("category3");
+			c.getCategories().add("category4");
+			assertEquals(2, c.getCategories().size());
+		}
+	}
 }
 
 
