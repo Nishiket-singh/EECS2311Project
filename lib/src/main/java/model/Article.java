@@ -9,7 +9,7 @@ package model;
 	    private String urlToImage;
 	    private String publishedAt;
 	    private String content;
-
+//ignore comment
 	    public Source getSource() {
 	        return source;
 	    }
