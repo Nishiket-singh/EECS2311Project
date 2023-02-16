@@ -2,7 +2,7 @@ package user;
 
 import java.util.*;
 
-public class Comments extends Person { //inherit person, person is super class
+public class Comments extends Person { 
 	
 	public Comments(String name, int age, String gender) {
 		super(name, age, gender);
