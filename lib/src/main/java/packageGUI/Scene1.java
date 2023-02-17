@@ -60,7 +60,5 @@ public class Scene1 {
 		Window.setScene(DefaultScene);
 		Window.show();
 	}
-	public static void main(String[] args) {
-		launch(args);
-	}
+
 }
