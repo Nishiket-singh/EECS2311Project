@@ -1,6 +1,10 @@
 package model;
 
-	public class Article {
+import org.json.JSONException;
+import org.json.JSONObject;
+import retrofit2.Retrofit;
+
+public class Article {
 	    private Source source;
 	    private String author;
 	    private String title;
