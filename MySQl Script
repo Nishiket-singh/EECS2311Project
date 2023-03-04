@@ -24,3 +24,23 @@ create database User Data;
     -> ('Ailin', 21 , 'Female' , 800),
     -> ('Ozzy', 22, 'Male', 900),
     -> ('Eagle' , 23 , 'Male', 1000);
+
+
+create table Login_Info(
+ID int Not Null,
+Username varchar(255),
+Password varchar(255),
+Primary Key (ID)
+);
+
+Insert into Login_Info( ID, Username, Password) values
+(100, 'hasd', '123'),
+(200, 'Agft', '456'),
+(300, 'Ehgs', '789'),
+(400, 'Nisdf', '012'),
+(500, 'Ssdr', '382'),
+(600, 'asdf', '928'),
+(700, 'gsdg', '382'),
+(800, 'jdsaf', '205'),
+(900, 'Oas', '208'),
+(1000, 'jsdg', '203');
