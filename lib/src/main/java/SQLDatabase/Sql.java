@@ -33,6 +33,20 @@ public class Sql {
 
 			System.out.println("Enter Username");
 			String Username = myobj.nextLine();
+			
+
+			System.out.println("Enter password");
+			String pass = myobj.nextLine();
+			String[] query = {"select * from person_info;" ,"select * from Login_Info;"};
+			String  query2 = "Insert into person_info(name,age,gender,ID)" + " VALUES(? ,? ,? ,?)";
+			String query3 = "Insert into Login_Info(ID, Username, Password)" + "VALUES(? , ? , ?)";
+
+			PreparedStatement  preparedstatement = con.prepareStatement(query2);
+			preparedstatement.setString(1,name);
+			preparedstatement.setInt(2, age);
+			preparedstatement.setString(3, gender);
+			preparedstatement.setInt(4, ID);
+			preparedstatement.execute();
 
 		} 
 		catch ( SQLException e ) {
