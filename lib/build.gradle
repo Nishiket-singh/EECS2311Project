@@ -31,7 +31,17 @@ eclipse{
 	}
 }
 
+task fixClasspath {
+    doLast {
+        file(".classpath").withWriter { writer ->
+            new groovy.xml.MarkupBuilder(new IndentPrinter(writer, "    ", true)).classpath {
+                classpathentry(kind:"src", path:"/lib")
+            }
+        }
+    }
+}
 
+eclipseJdtApt.dependsOn fixClasspath
 sourceCompatibility = 11
 targetCompatibility = 11
 
