@@ -14,6 +14,25 @@ public class Sql {
 			Connection con = DriverManager . getConnection ( url , user , password ) ;
 
 			Statement statement = con . createStatement () ;
+			Scanner myobj = new Scanner(System.in);
+			System.out.println("Enter name");
+			String name = myobj.nextLine();
+
+			System.out.println("Enter age");
+			int age = myobj.nextInt();
+			myobj.nextLine();
+
+			System.out.println("Enter gender");
+			String gender = myobj.nextLine();
+
+
+			System.out.println("Enter id ");
+			int ID = myobj.nextInt();
+			myobj.nextLine();
+
+
+			System.out.println("Enter Username");
+			String Username = myobj.nextLine();
 
 		} 
 		catch ( SQLException e ) {
