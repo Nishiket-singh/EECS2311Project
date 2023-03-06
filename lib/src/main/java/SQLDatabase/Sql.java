@@ -47,6 +47,26 @@ public class Sql {
 			preparedstatement.setString(3, gender);
 			preparedstatement.setInt(4, ID);
 			preparedstatement.execute();
+			
+			PreparedStatement  preparedstatement2 = con.prepareStatement(query3);
+			preparedstatement2.setInt(1, ID);
+			preparedstatement2.setString(2,Username);
+			preparedstatement2.setString(3,pass);
+
+			preparedstatement2.execute();
+
+			for (String q : query) {
+				ResultSet result = statement.executeQuery(q);
+				while ( result . next () ) {
+					String data = " " ;
+
+					for ( int i = 1; i < 4; i ++) {
+						data += result . getString ( i ) + " ";
+					}
+					System . out . println ( data ) ;
+				}
+				System.out.println("\n");
+			}
 
 		} 
 		catch ( SQLException e ) {
