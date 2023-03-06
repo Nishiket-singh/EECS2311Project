@@ -4,7 +4,7 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.10'
     id 'eclipse'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.7'
+
 
 }
 repositories {
@@ -25,8 +25,12 @@ javafx {
     version = "17.0.0.1."
     modules = [ 'javafx.controls', 'javafx.fxml']
 }
-
+eclipse{
+	classpath{
+		container "org.eclipse.buildship.core.gradleclasspathcontainer"
+	}
 }
+
 
 sourceCompatibility = 11
 targetCompatibility = 11
