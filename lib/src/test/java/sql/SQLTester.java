@@ -38,6 +38,19 @@ class SQLTester {
 		con.close();
 	}
 	
+	@Test
+	void test_numberOfColumns1() throws SQLException{ 
+		rs = con.createStatement().executeQuery("select count(*) from information_schema.columns where table_name = 'person_info';");
+		rs.next();
+		assertEquals(4, rs.getInt(1)/2);
+	}
+	
+	@Test
+	void test_numberOfColumns2() throws SQLException{ 
+		rs = con.createStatement().executeQuery("select count(*) from information_schema.columns where table_name = 'Login_Info';");
+		rs.next();
+		assertEquals(3, rs.getInt(1)/2);
+	}
 	
 	
 	
