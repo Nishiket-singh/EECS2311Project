@@ -6,24 +6,25 @@ create database User Data;
  use User_Data;
  
  CREATE TABLE person_info(
-    -> name VARCHAR(255),
-    -> age int,
-    -> gender VARCHAR(255),
-    -> ID INT NOT NULL,
-    -> PRIMARY KEY(ID)
-    -> );
+    name VARCHAR(255),
+    age int,
+    gender VARCHAR(255),
+    ID INT NOT NULL,
+    PRIMARY KEY(ID)
+    );
     
     INSERT INTO person_info
-    -> (name , age , gender, ID) VALUES
-    -> ('Aisha', 21, 'Female', 200),
-    -> ('Esha',21, 'Female',300),
-    -> ('Nish', 22 , 'Male', 400),
-    -> ('Hashim' , 21, 'Male', 500),
-    -> ('Amina' , 24 , 'Female' , 600),
-    -> ('Ayesha' , 24 , 'Female' , 700),
-    -> ('Ailin', 21 , 'Female' , 800),
-    -> ('Ozzy', 22, 'Male', 900),
-    -> ('Eagle' , 23 , 'Male', 1000);
+    (name , age , gender, ID) VALUES
+    ('Harshil', 20, 'Male', 100),
+    ('Aisha', 21, 'Female', 200),
+    ('Esha',21, 'Female',300),
+    ('Nish', 22 , 'Male', 400),
+    ('Hashim' , 21, 'Male', 500),
+    ('Amina' , 24 , 'Female' , 600),
+    ('Ayesha' , 24 , 'Female' , 700),
+    ('Ailin', 21 , 'Female' , 800),
+    ('Ozzy', 22, 'Male', 900),
+    ('Eagle' , 23 , 'Male', 1000);
 
 
 create table Login_Info(
