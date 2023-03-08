@@ -80,6 +80,74 @@ class SQLTester {
         assertEquals(rs2.getInt(1), names.size());
 	}
 	
+	@Test
+	void test_username() throws SQLException{ 
+		rs = con.createStatement().executeQuery("select Login_info.username from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Harshil';");
+		rs.next();
+		assertEquals("hasd", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.username from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Aisha';");
+		rs.next();
+		assertEquals("Agft", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.username from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Esha';");
+		rs.next();
+		assertEquals("Ehgs", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.username from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Nish';");
+		rs.next();
+		assertEquals("Nisdf", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.username from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Hashim';");
+		rs.next();
+		assertEquals("Ssdr", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.username from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Amina';");
+		rs.next();
+		assertEquals("asdf", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.username from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Ayesha';");
+		rs.next();
+		assertEquals("gsdg", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.username from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Ailin';");
+		rs.next();
+		assertEquals("jdsaf", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.username from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Ozzy';");
+		rs.next();
+		assertEquals("Oas", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.username from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Eagle';");
+		rs.next();
+		assertEquals("jsdg", rs.getString(1));	
+	}
+	
+	
+	@Test
+	void test_password() throws SQLException{ 
+		rs = con.createStatement().executeQuery("select Login_info.password from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Harshil';");
+		rs.next();
+		assertEquals("123", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.password from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Aisha';");
+		rs.next();
+		assertEquals("456", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.password from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Esha';");
+		rs.next();
+		assertEquals("789", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.password from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Nish';");
+		rs.next();
+		assertEquals("012", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.password from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Hashim';");
+		rs.next();
+		assertEquals("382", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.password from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Amina';");
+		rs.next();
+		assertEquals("928", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.password from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Ayesha';");
+		rs.next();
+		assertEquals("382", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.password from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Ailin';");
+		rs.next();
+		assertEquals("205", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.password from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Ozzy';");
+		rs.next();
+		assertEquals("208", rs.getString(1));
+		rs = con.createStatement().executeQuery("select Login_info.password from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Eagle';");
+		rs.next();
+		assertEquals("203", rs.getString(1));	
+	}
 	
 	
 	
