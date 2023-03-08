@@ -149,6 +149,43 @@ class SQLTester {
 		assertEquals("203", rs.getString(1));	
 	}
 	
+	@Test
+	void test_ID() throws SQLException{ 
+		rs = con.createStatement().executeQuery("select Login_info.ID from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Harshil';");
+		rs.next();
+		assertEquals(100, rs.getInt(1));
+		rs = con.createStatement().executeQuery("select Login_info.ID from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Aisha';");
+		rs.next();
+		assertEquals(200, rs.getInt(1));
+		rs = con.createStatement().executeQuery("select Login_info.ID from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Esha';");
+		rs.next();
+		assertEquals(300, rs.getInt(1));
+		rs = con.createStatement().executeQuery("select Login_info.ID from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Nish';");
+		rs.next();
+		assertEquals(400, rs.getInt(1));
+		rs = con.createStatement().executeQuery("select Login_info.ID from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Hashim';");
+		rs.next();
+		assertEquals(500, rs.getInt(1));
+		rs = con.createStatement().executeQuery("select Login_info.ID from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Amina';");
+		rs.next();
+		assertEquals(600, rs.getInt(1));
+		rs = con.createStatement().executeQuery("select Login_info.ID from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Ayesha';");
+		rs.next();
+		assertEquals(700, rs.getInt(1));
+		rs = con.createStatement().executeQuery("select Login_info.ID from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Ailin';");
+		rs.next();
+		assertEquals(800, rs.getInt(1));
+		rs = con.createStatement().executeQuery("select Login_info.ID from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Ozzy';");
+		rs.next();
+		assertEquals(900, rs.getInt(1));
+		rs = con.createStatement().executeQuery("select Login_info.ID from Login_Info inner join person_info on Login_Info.ID = person_info.ID where person_info.name = 'Eagle';");
+		rs.next();
+		assertEquals(1000, rs.getInt(1));	
+	}
+	
+	
+	
+	
 	
 	
 }
