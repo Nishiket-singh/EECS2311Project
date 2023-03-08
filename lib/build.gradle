@@ -5,7 +5,6 @@ plugins {
     id 'eclipse'
     id 'application'
 
-
 }
 repositories {
 
@@ -29,8 +28,8 @@ eclipse{
 	classpath{
 		container "org.eclipse.buildship.core.gradleclasspathcontainer"
 	}
-}
 
+}
 task fixClasspath {
     doLast {
         file(".classpath").withWriter { writer ->
@@ -39,9 +38,7 @@ task fixClasspath {
             }
         }
     }
-}
 
-eclipseJdtApt.dependsOn fixClasspath
+}
 sourceCompatibility = 11
 targetCompatibility = 11
-
