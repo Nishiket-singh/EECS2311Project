@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-/api/
-/dataFetchingAndAnalysis/
-/user/
-=======
-/packageGUI/
->>>>>>> origin/Harshil
-/Project/
-/model/
+public/img/ignore
+public/img/profiles
+public/blog
+public/recommendation
