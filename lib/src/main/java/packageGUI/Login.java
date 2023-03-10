@@ -12,7 +12,7 @@ public class Login  {
 		LoginFrame frame = new LoginFrame();
 		frame.setTitle("The Daily News Reporter Login Form");
 		frame.setVisible(true);
-		frame.setBounds(30,30,750,750);
+		frame.setBounds(30,30,900,750);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(true);
 		frame.getContentPane().setBackground(Color.PINK);
@@ -21,3 +21,4 @@ public class Login  {
 
 
 }
+
