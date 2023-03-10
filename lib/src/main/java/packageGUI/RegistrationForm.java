@@ -1,4 +1,4 @@
-package registerPageGUI;
+package packageGUI;
 
 import javax.swing.*;
 import java.awt.event.*;
