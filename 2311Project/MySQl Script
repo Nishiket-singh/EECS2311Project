@@ -1,0 +1,47 @@
+# EECS2311Project
+ 
+ # Run the following Script to create the database required for this project. 
+
+create database User Data;
+ use User_Data;
+ 
+ CREATE TABLE person_info(
+    name VARCHAR(255),
+    age int,
+    gender VARCHAR(255),
+    ID INT NOT NULL,
+    PRIMARY KEY(ID)
+    );
+    
+    INSERT INTO person_info
+    (name , age , gender, ID) VALUES
+    ('Harshil', 20, 'Male', 100),
+    ('Aisha', 21, 'Female', 200),
+    ('Esha',21, 'Female',300),
+    ('Nish', 22 , 'Male', 400),
+    ('Hashim' , 21, 'Male', 500),
+    ('Amina' , 24 , 'Female' , 600),
+    ('Ayesha' , 24 , 'Female' , 700),
+    ('Ailin', 21 , 'Female' , 800),
+    ('Ozzy', 22, 'Male', 900),
+    ('Eagle' , 23 , 'Male', 1000);
+
+
+create table Login_Info(
+ID int Not Null,
+Username varchar(255),
+Password varchar(255),
+Primary Key (ID)
+);
+
+Insert into Login_Info( ID, Username, Password) values
+(100, 'hasd', '123'),
+(200, 'Agft', '456'),
+(300, 'Ehgs', '789'),
+(400, 'Nisdf', '012'),
+(500, 'Ssdr', '382'),
+(600, 'asdf', '928'),
+(700, 'gsdg', '382'),
+(800, 'jdsaf', '205'),
+(900, 'Oas', '208'),
+(1000, 'jsdg', '203');
