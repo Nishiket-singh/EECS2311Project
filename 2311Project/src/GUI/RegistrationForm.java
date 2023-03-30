@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.sql.*;
 import java.awt.event.ActionEvent;
 
 
@@ -18,7 +19,7 @@ public class RegistrationForm extends JFrame implements ActionListener {
 	JLabel usernameLabel = new JLabel("Username:");
 	JLabel passwordLabel = new JLabel("Password:");
 	JLabel confirmPasswordLabel = new JLabel("Confirm Password:");
-	JLabel cityLabel = new JLabel("City:");
+	JLabel IDLabel = new JLabel("ID:");
 	JLabel countryLabel = new JLabel("Country:");
 	JLabel emailLabel = new JLabel("Email:");
 
@@ -29,7 +30,7 @@ public class RegistrationForm extends JFrame implements ActionListener {
 	JTextField usernameTextField = new JTextField();
 	JPasswordField passwordField = new JPasswordField();
 	JPasswordField confirmPasswordField = new JPasswordField();
-	JTextField cityTextField = new JTextField();
+	JTextField IDTextField = new JTextField();
 	JTextField countryTextField = new JTextField();
 	JTextField emailTextField = new JTextField();
 	JButton submitButton = new JButton("SUBMIT");
@@ -70,7 +71,7 @@ public class RegistrationForm extends JFrame implements ActionListener {
 		passwordLabel.setBounds(20,270,100,70);
 		showPassword.setBounds(200,320,150,30); // update
 		confirmPasswordLabel.setBounds(20,370,140,70);
-		cityLabel.setBounds(20,420,100,70);
+		IDLabel.setBounds(20,420,100,70);
 		countryLabel.setBounds(20,470,100,70); //update
 		emailLabel.setBounds(20,520,100,70);
 
@@ -81,7 +82,7 @@ public class RegistrationForm extends JFrame implements ActionListener {
 		usernameTextField.setBounds(180,243,165,23); //update
 		passwordField.setBounds(180,293,165,23);
 		confirmPasswordField.setBounds(180,393,165,23);
-		cityTextField.setBounds(180,443,165,23);
+		IDTextField.setBounds(180,443,165,23);
 		countryTextField.setBounds(180,493,165,23); //update 
 		emailTextField.setBounds(180,543,165,23);
 		submitButton.setBounds(70,593,100,35);
@@ -99,7 +100,7 @@ public class RegistrationForm extends JFrame implements ActionListener {
 		frame.add(passwordLabel);
 		frame.add(confirmPasswordLabel);
 		frame.add(showPassword);
-		frame.add(cityLabel);
+		frame.add(IDLabel);
 		frame.add(countryLabel);
 		frame.add(emailLabel);
 
@@ -110,7 +111,7 @@ public class RegistrationForm extends JFrame implements ActionListener {
 		frame.add(usernameTextField);
 		frame.add(passwordField);
 		frame.add(confirmPasswordField);
-		frame.add(cityTextField);
+		frame.add(IDTextField);
 		frame.add(countryTextField);
 		frame.add(emailTextField);
 		frame.add(submitButton);
@@ -127,23 +128,47 @@ public class RegistrationForm extends JFrame implements ActionListener {
 	}
 
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//Coding Part of Submit button
 
-		// this will be adapted to incorporate MYSQL in the later iteration
-		//		if (e.getSource() == submitButton) {
-		//		String userText;
-		//		String pwdText;
-		//			userText = usernameTextField.getText();
-		//			pwdText = passwordField.getText();
-		//			if (userText.equalsIgnoreCase("esha") && pwdText.equalsIgnoreCase("12345")) {
-		//				JOptionPane.showMessageDialog(this, "Login Successful");
-		//			} else {
-		//				JOptionPane.showMessageDialog(this, "Invalid Username or Password");
-		//			}
-		//
-		//	}
+        if(e.getSource()==submitButton)
+        {
+            try {
+                //Creating Connection Object
+                Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/User_Data","root","");
+                //Preapared Statement
+                PreparedStatement Pstatement=connection.prepareStatement("Insert into person_info(name,age,gender,ID)" + " VALUES(? ,? ,? ,?)");
+                PreparedStatement Pstatement1 = connection.prepareStatement("Insert into Login_Info(ID, Username, Password)" + "VALUES(? , ? , ?)");
+                //Specifying the values of it's parameter
+                Pstatement.setString(1,firstNameTextField.getText());
+                Pstatement.setString(2,ageTextField.getText());
+                Pstatement.setString(3,genderComboBox.getSelectedItem().toString());
+                Pstatement.setInt(4,Integer.parseInt(IDTextField.getText()));
+                
+                Pstatement1.setInt(1,Integer.parseInt(IDTextField.getText()));
+                Pstatement1.setString(2, usernameTextField.getText());
+                Pstatement1.setString(3, passwordField.getText());
+                //Checking for the Password match
+                if(passwordField.getText().equalsIgnoreCase(confirmPasswordField.getText()))
+                {
+                    //Executing query
+                    Pstatement.execute();
+                    Pstatement1.execute();
+                    JOptionPane.showMessageDialog(null,"Data Registered Successfully");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"password did not match");
+                }
+ 
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+ 
+ 
+        }
 
 		//Coding Part of Clear button
 		if (e.getSource() == clearButton) {
@@ -153,7 +178,7 @@ public class RegistrationForm extends JFrame implements ActionListener {
 			ageTextField.setText("");
 			passwordField.setText("");
 			confirmPasswordField.setText("");
-			cityTextField.setText("");
+			IDTextField.setText("");
 			countryTextField.setText("");
 			emailTextField.setText("");
 			usernameTextField.setText("");
