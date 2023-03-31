@@ -45,3 +45,5 @@ Insert into Login_Info( ID, Username, Password) values
 (800, 'jdsaf', '205'),
 (900, 'Oas', '208'),
 (1000, 'jsdg', '203');
+
+* For running the main.java file, write your own SQL password. 
