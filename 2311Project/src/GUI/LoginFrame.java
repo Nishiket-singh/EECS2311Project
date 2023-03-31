@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
+//import java.sql.DriverManager;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
 
 public class LoginFrame extends JFrame implements ActionListener {
 
@@ -29,7 +33,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 		addActionEvent();
 
 	}
-	
+
 	public void createWindow()
 	{
 		frame = new JFrame();
@@ -42,7 +46,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(true);
 	}
-	
+
 	public void setLocationAndSize()
 	{
 		//Setting location and Size of each components using setBounds() method.
@@ -59,7 +63,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 
 
 	}
-	
+
 	public void addComponentsToContainer()
 	{
 		//Adding each components to the Container
@@ -86,29 +90,36 @@ public class LoginFrame extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		//Coding Part of LOGIN button
-		
-		// this will be adapted to incorporate MYSQL in the later iteration
-		if (e.getSource() == loginButton) {
-			String userText;
-			String pwdText;
-			userText = userTextField.getText();
-			pwdText = passwordField.getText();
-			if (userText.equalsIgnoreCase("esha") && pwdText.equalsIgnoreCase("12345")) {
-				JOptionPane.showMessageDialog(this, "Login Successful");
-			} else {
-				JOptionPane.showMessageDialog(this, "Invalid Username or Password");
-			}
 
+		//Coding Part of LOGIN button
+		if (e.getSource() == loginButton) {
+			try {
+				Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/User_Data","root","300A.phase5");
+				String userText;
+				String pwdText;
+				userText = userTextField.getText();
+				pwdText = passwordField.getText();
+				PreparedStatement ps= connection.prepareStatement("select Login_info.password from Login_Info where Login_Info.username =?");
+				ps.setString(1, userText);
+				ResultSet rs2 = ps.executeQuery();
+				rs2.next();
+				if (rs2.getString(1).equals(pwdText)) {
+					JOptionPane.showMessageDialog(this, "Login Successful");
+				} else {
+					JOptionPane.showMessageDialog(this, "Invalid Username or Password");
+				}
+
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 		}
-		
+
 		//Coding Part of RESET button
 		if (e.getSource() == resetButton) {
 			userTextField.setText("");
 			passwordField.setText("");
 		}
-		
+
 		//Coding Part of showPassword JCheckBox
 		if (e.getSource() == showPassword) {
 			if (showPassword.isSelected()) {
@@ -117,10 +128,10 @@ public class LoginFrame extends JFrame implements ActionListener {
 				passwordField.setEchoChar('*');
 			}
 		}
-		
+
 		if (e.getSource() == backButton) {
 			frame.dispose();
-		LaunchPage previousWindow = new LaunchPage();
+			LaunchPage previousWindow = new LaunchPage();
 		}
 	}
 }
