@@ -94,7 +94,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 		//Coding Part of LOGIN button
 		if (e.getSource() == loginButton) {
 			try {
-				Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/User_Data","root","300A.phase5");
+				Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/User_Data","root","");
 				String userText;
 				String pwdText;
 				userText = userTextField.getText();
@@ -103,8 +103,10 @@ public class LoginFrame extends JFrame implements ActionListener {
 				ps.setString(1, userText);
 				ResultSet rs2 = ps.executeQuery();
 				rs2.next();
-				if (rs2.getString(1).equals(pwdText)) {
-					JOptionPane.showMessageDialog(this, "Login Successful");
+				if (rs2 != null && rs2.getString(1).equals(pwdText)) {
+					//JOptionPane.showMessageDialog(this, "Login Successful");
+					frame.dispose();
+					Preferences nWindow = new Preferences();
 				} else {
 					JOptionPane.showMessageDialog(this, "Invalid Username or Password");
 				}
