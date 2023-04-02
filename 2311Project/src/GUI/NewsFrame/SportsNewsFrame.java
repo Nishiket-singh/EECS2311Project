@@ -9,7 +9,7 @@ import java.awt.*;
 public class SportsNewsFrame extends JFrame {
 
     public SportsNewsFrame() {
-        setTitle("Science News");
+        setTitle("Sports News");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         JTextArea headlinesArea = new JTextArea();
