@@ -21,7 +21,7 @@ public class Preferences extends JFrame implements ActionListener {
 	private JButton logoutButton;
 
 	public Preferences() {
-		setTitle("Multiple Selection List");
+		setTitle("Article Selection List");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Create a button panel for the logout button
