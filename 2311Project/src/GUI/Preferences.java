@@ -1,6 +1,15 @@
 package GUI;
 
 import javax.swing.*;
+
+import GUI.NewsFrame.BusinessNewsFrame;
+import GUI.NewsFrame.EntertainmentNewsFrame;
+import GUI.NewsFrame.GeneralNewsFrame;
+import GUI.NewsFrame.HealthNewsFrame;
+import GUI.NewsFrame.ScienceNewsFrame;
+import GUI.NewsFrame.SportsNewsFrame;
+import GUI.NewsFrame.TechnologyNewsFrame;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -9,17 +18,25 @@ public class Preferences extends JFrame implements ActionListener {
 
 	private JList<String> list;
 	private JButton button;
-
+	private JButton logoutButton;
 
 	public Preferences() {
 		setTitle("Multiple Selection List");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		// Create a button panel for the logout button
+		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		logoutButton = new JButton("Logout");
+		logoutButton.addActionListener(this);
+		buttonPanel.add(logoutButton);
+
+		// Add the button panel to the north position of the frame
+		add(buttonPanel, BorderLayout.NORTH);
+
 		// Create a label to display instructions to the user
-		JLabel label = new JLabel("Select one or more items from the list: \n "
-				+ "To select multiple items, hold down the control/command key.");
+		JLabel label = new JLabel("Select one category in the list");
 		label.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0)); // Add an empty border to the label
-		add(label, BorderLayout.NORTH);
+		add(label, BorderLayout.CENTER);
 
 		// Create the list with checkboxes
 		String[] items = {"Business", "Entertainment", "General", "Health", "Science", "Sports", "Technology"};
@@ -30,7 +47,7 @@ public class Preferences extends JFrame implements ActionListener {
 		add(scrollPane, BorderLayout.CENTER);
 
 		// Create the button to get selected items
-		button = new JButton("Get Selected Items");
+		button = new JButton("See Articles");
 		button.addActionListener(this);
 		add(button, BorderLayout.SOUTH);
 
@@ -52,12 +69,38 @@ public class Preferences extends JFrame implements ActionListener {
 	            
 	            // Display certain things based on the selected items
 	            if (selectedItems.contains("Business")) {
-	                // Display something related to Item 1
+	            	 new BusinessNewsFrame();
 	            }
 	            if (selectedItems.contains("Entertainment")) {
+	            	new EntertainmentNewsFrame();
 	                // Display something related to Item 2
 	            }
-	            // and so on...
+	            if (selectedItems.contains("General")) {
+	            	new GeneralNewsFrame();
+	                // Display something related to Item 2
+	            }
+	            if (selectedItems.contains("Health")) {
+	            	new HealthNewsFrame();
+	                // Display something related to Item 2
+	            }
+	            if (selectedItems.contains("Science")) {
+	            	new ScienceNewsFrame();
+	                // Display something related to Item 2
+	            }
+	            if (selectedItems.contains("Sports")) {
+	            	new SportsNewsFrame();
+	                // Display something related to Item 2
+	            }
+	            if (selectedItems.contains("Technology")) {
+	            	new TechnologyNewsFrame();
+	                // Display something related to Item 2
+	            }
+		}
+		if (e.getSource() == logoutButton) {
+			// Handle logout button click event
+			JOptionPane.showMessageDialog(this, "You have logged out.");
+			dispose(); // Close the preferences window
+			
 		}
 	}
 }
