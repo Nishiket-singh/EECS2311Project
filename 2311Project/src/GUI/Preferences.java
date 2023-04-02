@@ -21,7 +21,7 @@ public class Preferences extends JFrame implements ActionListener {
 	private JButton logoutButton;
 
 	public Preferences() {
-		setTitle("Article Selection List");
+		setTitle("The Daily News Reporter Article Selection List");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Create a button panel for the logout button
@@ -34,9 +34,9 @@ public class Preferences extends JFrame implements ActionListener {
 		add(buttonPanel, BorderLayout.NORTH);
 
 		// Create a label to display instructions to the user
-		JLabel label = new JLabel("Select one category in the list");
+		JLabel label = new JLabel("Select a category in the list to view the articles related to the topic.");
 		label.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0)); // Add an empty border to the label
-		add(label, BorderLayout.CENTER);
+		add(label, BorderLayout.NORTH);
 
 		// Create the list with checkboxes
 		String[] items = {"Business", "Entertainment", "General", "Health", "Science", "Sports", "Technology"};
