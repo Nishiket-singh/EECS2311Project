@@ -47,7 +47,7 @@ public class Preferences extends JFrame implements ActionListener {
 		add(scrollPane, BorderLayout.CENTER);
 
 		// Create the button to get selected items
-		button = new JButton("See Articles");
+		button = new JButton("View Selected Articles");
 		button.addActionListener(this);
 		add(button, BorderLayout.SOUTH);
 
