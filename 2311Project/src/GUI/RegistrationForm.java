@@ -54,7 +54,7 @@ public class RegistrationForm extends JFrame implements ActionListener {
 		frame.setTitle("The Daily News Reporter Registration Form");
 
 		frame.setBounds(100,100,900,750);
-		frame.getContentPane().setBackground(Color.pink);
+		//frame.getContentPane().setBackground(Color.pink);
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
