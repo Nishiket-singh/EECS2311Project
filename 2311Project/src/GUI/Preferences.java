@@ -34,7 +34,7 @@ public class Preferences extends JFrame implements ActionListener {
 		add(buttonPanel, BorderLayout.EAST);
 
 		// Create a label to display instructions to the user
-		JLabel label = new JLabel("Select a category in the list to view the articles related to the topic.");
+		JLabel label = new JLabel("Select a category in the list to view the articles related to the topic. To view multiple articles at the same time, press and hold the control/command line and select the articles you would like to view.");
 		label.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0)); // Add an empty border to the label
 		add(label, BorderLayout.NORTH);
 
