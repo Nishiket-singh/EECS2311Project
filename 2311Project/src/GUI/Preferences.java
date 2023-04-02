@@ -31,7 +31,7 @@ public class Preferences extends JFrame implements ActionListener {
 		buttonPanel.add(logoutButton);
 
 		// Add the button panel to the north position of the frame
-		add(buttonPanel, BorderLayout.NORTH);
+		add(buttonPanel, BorderLayout.EAST);
 
 		// Create a label to display instructions to the user
 		JLabel label = new JLabel("Select a category in the list to view the articles related to the topic.");
