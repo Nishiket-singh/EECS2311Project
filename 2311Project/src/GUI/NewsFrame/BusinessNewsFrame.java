@@ -26,15 +26,14 @@ public class BusinessNewsFrame extends JFrame {
 
         // Set the headlines and article text
         StringBuilder headlines = new StringBuilder();
+        StringBuilder article = new StringBuilder();
         for (String headline : Business.headlines) {
-            headlines.append(headline).append("\n");
+            for (String paragraph : Business.article) {
+                headlines.append(headline).append("\n");
+                article.append(paragraph).append("\n");
+        }
         }
         headlinesArea.setText(headlines.toString());
-
-        StringBuilder article = new StringBuilder();
-        for (String paragraph : Business.article) {
-            article.append(paragraph).append("\n");
-        }
         articleArea.setText(article.toString());
 
         pack();
