@@ -1,6 +1,7 @@
 # EECS2311Project
  
  # Run the following Script to create the database required for this project. 
+ # Import junit5 library and sqljar file. 
 
 create database User Data;
  use User_Data;
